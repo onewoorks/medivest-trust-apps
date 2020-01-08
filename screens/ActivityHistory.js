@@ -12,35 +12,35 @@ class ActivityHistory extends React.Component{
         text: null
     }
 
-    componentDidMount(){
-        db.transaction( tx => {
-            tx.executeSql(
-                "create table if not exists items (id integer primary key not null, done int, value text);"
-            )
-        })
-    }
+    // componentDidMount(){
+    //     db.transaction( tx => {
+    //         tx.executeSql(
+    //             "create table if not exists items (id integer primary key not null, done int, value text);"
+    //         )
+    //     })
+    // }
 
-    add(text) {
-    if (text === null || text === "") {
-      return false;
-    }
+  //   add(text) {
+  //   if (text === null || text === "") {
+  //     return false;
+  //   }
 
-    db.transaction(
-      tx => {
-        tx.executeSql("insert into items (done, value) values (0, ?)", [text]);
-        tx.executeSql("select * from items", [], (_, { rows }) =>
-          console.log(JSON.stringify(rows))
-        );
-      },
-      null,
-      this.update
-    );
-  }
+  //   db.transaction(
+  //     tx => {
+  //       tx.executeSql("insert into items (done, value) values (0, ?)", [text]);
+  //       tx.executeSql("select * from items", [], (_, { rows }) =>
+  //         console.log(JSON.stringify(rows))
+  //       );
+  //     },
+  //     null,
+  //     this.update
+  //   );
+  // }
 
-  update = () => {
-    this.todo && this.todo.update();
-    this.done && this.done.update();
-  };
+  // update = () => {
+  //   this.todo && this.todo.update();
+  //   this.done && this.done.update();
+  // };
 
     render(){
         return(
