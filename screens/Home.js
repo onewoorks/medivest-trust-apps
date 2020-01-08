@@ -2,6 +2,7 @@ import React from 'react';
 import { View, Text, Button, StyleSheet } from 'react-native'
 
 import ButtonAtHome from '../components/button_at_home'
+import ActivityCounter from '../components/activity_counter'
 
 export default class HomeScreen extends React.Component{
     static navigationOptions = {
@@ -21,6 +22,7 @@ export default class HomeScreen extends React.Component{
                 </View> 
 
                 <View style={styles.overlay_header}>
+                    <ActivityCounter />
                     <ButtonAtHome 
                         title="Asset Scanner" 
                         navigation={this.props.navigation}
@@ -44,7 +46,7 @@ export default class HomeScreen extends React.Component{
 
 const styles = StyleSheet.create({
     hero_header: {
-        height: 260,
+        height: 220,
         backgroundColor: 'purple',
         justifyContent: 'center',
         alignItems: 'center',
